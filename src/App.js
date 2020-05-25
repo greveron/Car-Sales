@@ -17,7 +17,12 @@ const App = (props) => {
       </div>
       <div className="box">
         <AdditionalFeatures additionalFeatures={props.state.additionalFeatures} />
-        <Total car={props.state.car} additionalPrice={props.state.additionalPrice} />
+        <Total car={props.state.car} additionalPrice={props.state.car.features.reduce((accum, initialPrice)=>{
+return accum+initialPrice.price
+        },props.state.additionalPrice)
+        
+      } 
+        />
       </div>
     </div>
   );
